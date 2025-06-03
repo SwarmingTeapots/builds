@@ -28,6 +28,7 @@ jobs:
       - name: Publish to Cloudflare Workers from private repo
         uses: cloudflare/wrangler-action@v3
         with:
+          wranglerVersion: "4.18.0"
           apiToken: ${{ secrets.CLOUDFLARE_WORKERS_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         env:
