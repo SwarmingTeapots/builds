@@ -25,6 +25,16 @@ jobs:
         run: |
           git clone https://x-access-token:${GH_PAT}@github.com/SwarmingTeapots/CompanyLandingPage.git
 
+      - name: Install dependencies
+        working-directory: ./CompanyLandingPage
+        run: |
+          npm i
+
+      - name: Build landing site
+        working-directory: ./CompanyLandingPage
+        run: |
+          npm run build
+
       - name: Publish to Cloudflare Workers from private repo
         uses: cloudflare/wrangler-action@v3
         with:
